@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 2rem;
+        }
+
+        h1, h2 {
+            color: #00bcd4;
+        }
+
+        .chart-container {
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,255,255,0.1);
+            max-width: 1000px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 2px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Invoice Pattern Analysis</h1>
+    <p>Total invoices analyzed: {{ total_invoices }}</p>
+
+    <h2>📦 Invoices per Carrier</h2>
+    <ul>
+        {% for carrier, count in invoices_per_carrier.items() %}
+        <li>{{ carrier }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>🚫 Mismatch Reasons</h2>
+    <ul>
+        {% for reason, count in mismatch_reasons.items() %}
+        <li>{{ reason }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>📅 Billing Trend</h2>
+    <ul>
+        {% for month, total in billing_trend.items() %}
+        <li>{{ month }}: {{ total }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="chart-container">
+        <div id="carrier_chart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="mismatch_chart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="trend_chart"></div>
+    </div>
+
+    <script>
+        const carrier_chart = {{ carrier_chart | safe }};
+        const mismatch_chart = {{ mismatch_chart | safe }};
+        const trend_chart = {{ trend_chart | safe }};
+
+        Plotly.newPlot('carrier_chart', carrier_chart.data, carrier_chart.layout);
+        Plotly.newPlot('mismatch_chart', mismatch_chart.data, mismatch_chart.layout);
+        Plotly.newPlot('trend_chart', trend_chart.data, trend_chart.layout);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+Carrier,Invoice Amount,Date,Mismatch Reason
+BlueDart,2811.87,02-05-2025,Duplicate Entry
+DHL,2753.25,11-05-2025,Duplicate Entry
+BlueDart,3092.21,17-05-2025,Duplicate Entry
+UPS,1669.5,16-05-2025,Missing POD
+UPS,1653.49,01-05-2025,Overbilling
+UPS,4015.76,23-05-2025,Overbilling
+UPS,3560.94,30-06-2025,Incorrect Weight
+BlueDart,1968.91,14-05-2025,Duplicate Entry
+BlueDart,966.82,05-05-2025,Duplicate Entry
+BlueDart,4040.98,12-06-2025,Duplicate Entry
+DHL,4122.02,18-05-2025,Overbilling
+FedEx,1165.46,28-06-2025,Wrong Address
+DHL,931.92,18-06-2025,Wrong Address
+UPS,2377.71,28-05-2025,Incorrect Weight
+FedEx,2618.07,07-06-2025,Duplicate Entry
+Delhivery,2268.23,22-06-2025,Overbilling
+FedEx,4593.14,20-06-2025,Incorrect Weight
+Delhivery,4561.58,11-05-2025,Incorrect Weight
+BlueDart,1301.58,25-05-2025,Duplicate Entry
+DHL,4691.86,31-05-2025,Duplicate Entry
+Delhivery,738.33,10-05-2025,Duplicate Entry
+DHL,2159.32,11-05-2025,Missing POD
+Delhivery,2467.53,12-05-2025,Missing POD
+DHL,4333.68,26-06-2025,Duplicate Entry
+FedEx,4383.2,13-06-2025,Wrong Address
