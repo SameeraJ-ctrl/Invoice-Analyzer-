@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .data {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #1f1f1f;
+        }
+
+            .data th, .data td {
+                border: 1px solid #444;
+                padding: 10px;
+                text-align: center;
+            }
+
+        .chart-container {
+            width: 90%;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Analysis Summary</h1>
+
+    <div class="chart-container">
+        {{ table | safe }}
+    </div>
+
+    <div class="chart-container" id="bar1"></div>
+    <div class="chart-container" id="bar2"></div>
+    <div class="chart-container" id="pie"></div>
+
+    <script>
+        Plotly.newPlot('bar1', {{ bar1 | safe }}.data, {{ bar1 | safe }}.layout);
+        Plotly.newPlot('bar2', {{ bar2 | safe }}.data, {{ bar2 | safe }}.layout);
+        Plotly.newPlot('pie', {{ pie | safe }}.data, {{ pie | safe }}.layout);
+    </script>
+</body>
+</html>

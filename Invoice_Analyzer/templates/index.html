@@ -1,72 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Upload Carrier Invoices</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f1f1f1;
-            padding: 40px;
-            text-align: center;
-        }
-
-        form {
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            display: inline-block;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        input[type="file"], input[type="submit"] {
-            margin: 10px;
-            padding: 10px;
-        }
-
-        .btn-analyze {
-            display: inline-block;
-            padding: 12px 24px;
-            margin-top: 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-            .btn-analyze:hover {
-                background-color: #45a049;
-            }
-
-        .message {
-            color: green;
-            margin-top: 10px;
-        }
-    </style>
+    <title>Invoice Pattern Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Upload Carrier Invoices</h1>
-
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <div class="message">
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
+    <div class="container">
+        <h1>Invoice Pattern Analyzer</h1>
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" multiple required>
+            <button type="submit">Upload CSV Files</button>
+        </form>
+        <p class="note">Upload invoices to analyze billing patterns and errors.</p>
     </div>
-    {% endif %}
-    {% endwith %}
-
-    <!-- Upload form -->
-    <form method="POST" action="{{ url_for('analyze') }}" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <input type="submit" value="Upload and Analyze" class="btn-analyze">
-    </form>
 </body>
 </html>
